@@ -1,0 +1,12 @@
+{
+  "C_Cpp.errorSquiggles": "Disabled",
+  "files.associations": {
+    "new": "cpp",
+    "iostream": "cpp",
+    "algorithm": "cpp",
+    "__locale": "cpp",
+    "iterator": "cpp",
+    "unordered_map": "cpp",
+    "queue": "cpp"
+  }
+}
