@@ -5,9 +5,9 @@
 #include <vector>
 #include <queue>
 #include <string>
+#include <algorithm>
 #include <cmath>
 using namespace std;
-
 
 int main()
 {

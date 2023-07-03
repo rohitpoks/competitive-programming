@@ -22,21 +22,15 @@ vector<string> permute(string s)
  for (int i = 0; i < s.size(); i++)
  {
   vector<string> subres;
-  if (i == 0)
-  {
-   subres = permute(s.substr(1));
-  }
-  else
-  {
-   while (i < s.length() && s[i] == s[i - 1])
-    i++;
-   if (i == s.length()) break;
-   subres = permute(s.substr(0, i) + s.substr(i + 1));
-  }
+
+  while (i > 0 && i < s.length() && s[i] == s[i - 1])
+   i++;
+  if (i == s.length())
+   break;
+  subres = permute(s.substr(0, i) + s.substr(i + 1));
 
   for (string subs : subres)
   {
-
    result.push_back(s.substr(i, 1) + subs);
   }
  }
