@@ -77,8 +77,6 @@ int backtrack(int row, int col, int remaining, vector<vector<char> >& board) {
 
   temp[row][col] = '*';
   updateBoard(row, col, temp);
-  // printBoard(temp);
-  // cout << "updating at row = " << row << " && col = " << col << endl;
   
 
 

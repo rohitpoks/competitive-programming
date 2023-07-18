@@ -9,10 +9,19 @@
 #include <algorithm>
 #include <cmath>
 #include <set>
-#include <climits>
-using ll = long long;
 using namespace std;
 
-int main() {
- return 0;
+int main()
+{
+ int n;
+ cin >> n;
+
+ set<int> set;
+ for (int i = 0; i < n; i++) {
+  int a;
+  cin >> a;
+
+  set.insert(a);
+ }
+ cout << set.size();
 }
