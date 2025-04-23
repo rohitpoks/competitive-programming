@@ -40,3 +40,10 @@ ll power_mod(ll a, ll n, ll p) {
 
   return res;
 }
+
+
+
+
+ll inverse(ll a, ll p) {
+  return power_mod(a, p - 2, p);
+}
