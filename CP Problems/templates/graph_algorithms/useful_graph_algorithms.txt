@@ -1,0 +1,39 @@
+bfs to find shortest even, odd distance from a node to every other node in an undirected, connected, simple graph
+idea:
+
+consider using 2 seen sets, a seen_odd set for storing every vertex whose shortest odd seen distance we've seen already 
+and a seen_even set for storing every vertex whose shortest even distance we've seen already
+
+note: seen_even.insert(1), since can go from 1-1 in any graph
+next, maintain a q. initially contains 1
+current_d = 0, which stores the bfs step
+while not queue empty, for every vertex in current queue, get u out of q
+now for every neighbor n of u
+  check if we can update any of its distances (either odd or even)
+  if so, update that distance and update seen set accordingly
+  also add to queue if we've updated it
+
+
+proof of correctness:
+consider a transformation of the original graph where for every vertex u, we create u_0 and u_1
+u_0 supposed to represent: at u with even length path
+u_1: at u with odd length path
+
+note: for every u-v in original, define:
+u_0-v_1
+u_1-v_0
+v_0-u_1
+v_1-u_0
+
+i.e. taking a step toggles parity
+
+in our new graph, we have twice the number of vertices and 4 times the number of edges
+
+our algorithm does a bfs on this new G (keeping seen set for u_0s and u_1s, and implicitly traversing edges)
+returns shortest paths from u_0 to all nodes in G (assuming bfs returns shortest paths)
+tranform that to corresponding even/odd shortest paths
+
+Time Complexity: O(2V + 4E) = O(V + E)
+In general, can do this for mod k
+i.e. dist[v][x] = shortest distance from u to v s.t. dist[v] = x in mod k
+Time Complexity: O(kV + 2kE) = O(k(V + E))

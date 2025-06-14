@@ -41,9 +41,21 @@ ll power_mod(ll a, ll n, ll p) {
   return res;
 }
 
-
-
-
 ll inverse(ll a, ll p) {
   return power_mod(a, p - 2, p);
+}
+
+
+// GENERATE FIRST N PRIMES, N*(log(log(N)))
+void generate_primes(ll n, vector<ll>& res) {
+  vector<bool> is_prime(n+1, true);
+  is_prime[0] = is_prime[1] = false;
+  for (int i = 2; i <= n; i++) {
+    if (is_prime[i] && (long long)i * i <= n) {
+        for (int j = i * i; j <= n; j += i)
+            is_prime[j] = false;
+    }
+
+    if (is_prime[i]) res.push_back(i);
+  }
 }
